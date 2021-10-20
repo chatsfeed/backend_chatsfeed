@@ -32,7 +32,7 @@ terraform {
 
 resource "aws_s3_bucket" "chatsfeed_terraform_remote_state_s3" {
   # TODO: change this to your own name! S3 bucket names must be *globally* unique.
-  bucket = "chatsfeed_terraform_remote_state_s3"
+  bucket = "chatsfeed-terraform-remote-state-s3"
 
   # Enable versioning so we can see the full revision history of our
   # state files
@@ -55,7 +55,7 @@ resource "aws_s3_bucket" "chatsfeed_terraform_remote_state_s3" {
 # ------------------------------------------------------------------------------
 
 resource "aws_dynamodb_table" "chatsfeed_terraform_remote_state_s3_locks" {
-  name         = "chatsfeed_terraform_remote_state_s3_locks"
+  name         = "chatsfeed-terraform-remote-state-s3-locks"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
