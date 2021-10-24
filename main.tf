@@ -30,9 +30,9 @@ terraform {
 # CREATE THE S3 BUCKET
 # ------------------------------------------------------------------------------
 
-resource "aws_s3_bucket" "chatsfeed_terraform_remote_state_s3" {
+resource "aws_s3_bucket" "chatsfeed_terraform_s3_remote_state" {
   # TODO: change this to your own name! S3 bucket names must be *globally* unique.
-  bucket = "chatsfeed-terraform-remote-state-s3"
+  bucket = "chatsfeed-terraform-s3-remote-state"
 
   # Enable versioning so we can see the full revision history of our
   # state files
@@ -54,8 +54,8 @@ resource "aws_s3_bucket" "chatsfeed_terraform_remote_state_s3" {
 # CREATE THE DYNAMODB TABLE
 # ------------------------------------------------------------------------------
 
-resource "aws_dynamodb_table" "chatsfeed_terraform_remote_state_s3_locks" {
-  name         = "chatsfeed-terraform-remote-state-s3-locks"
+resource "aws_dynamodb_table" "chatsfeed_terraform_dynamodb_remote_state_locks" {
+  name         = "chatsfeed-terraform-dynamodb-remote-state-locks"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
